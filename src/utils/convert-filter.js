@@ -10,7 +10,7 @@ const convertFilter = (filter) => {
     switch (property.type()) {
     case 'string':
       return {
-        [property.name()]: { [Op.iRegexp]: escape(value) },
+        [property.name()]: { [Op.like]: `%${value}%` },
         ...memo,
       }
     case 'number':
